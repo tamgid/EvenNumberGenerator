@@ -1,0 +1,35 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Even Number Generator</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f8ff; text-align: center; padding-top: 100px;">
+  <div style="background-color: #e6f2ff; border-radius: 10px; display: inline-block; padding: 40px; box-shadow: 0 0 10px #ccc;">
+    <h1 style="color: #004080;">Even Number Generator</h1>
+    <h2 style="color: #0066cc;">Please enter how many even numbers you want to generate?</h2>
+
+    <input type="number" id="numberInput" placeholder="Enter a number" min="1"
+           style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; width: 200px;">
+    <br><br>
+    <button onclick="submitNumber()"
+            style="padding: 10px 20px; font-size: 16px; border: none; background-color: #3399ff; color: white; border-radius: 5px; cursor: pointer;">
+      Generate
+    </button>
+  </div>
+
+  <script>
+    function submitNumber() {
+      const n = document.getElementById('numberInput').value;
+      if (!n || n <= 0) {
+        alert("Please enter a valid positive number.");
+        return;
+      }
+
+      // Redirect to result page with query parameter
+      window.location.href = `result.html?count=${n}`;
+    }
+  </script>
+</body>
+</html>

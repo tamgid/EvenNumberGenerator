@@ -1,0 +1,40 @@
+<!-- result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Results</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #fff0f5; text-align: center; padding-top: 100px;">
+  <div style="background-color: #ffe6f0; border-radius: 10px; display: inline-block; padding: 40px; box-shadow: 0 0 10px #ccc;">
+    <h1 style="color: #cc0066;">Generated Even Numbers</h1>
+    <div id="result" style="font-size: 18px; color: #333; margin-top: 20px;"></div>
+    <h3 style="color: #800040; margin-top: 30px;">Thank you!</h3>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function generateEvenNumbers(count) {
+      const n = parseInt(count);
+      const evenNumbers = [];
+      for (let i = 0; evenNumbers.length < n; i++) {
+        if (i % 2 === 0) evenNumbers.push(i);
+      }
+      return evenNumbers;
+    }
+
+    const count = getQueryParam('count');
+    if (count && !isNaN(count) && count > 0) {
+      const resultDiv = document.getElementById('result');
+      const evenNumbers = generateEvenNumbers(count);
+      resultDiv.innerText = evenNumbers.join(', ');
+    } else {
+      document.getElementById('result').innerText = "Invalid input.";
+    }
+  </script>
+</body>
+</html>
